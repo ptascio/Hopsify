@@ -16,9 +16,21 @@ class Music
         Authorization: ENV["hashed_auth"]
       }
     )
-    puts new_token.body
 
+    token = JSON.parse(new_token.body)["access_token"]
+    get_music_info(token)
+  end
 
+  def self.get_music_info(token)
+    music_info = RestClient::Request.execute(
+      method: :get,
+      url: 'https://api.spotify.com/v1/search?q=tania%20bowra&type=artist',
+      headers: {
+        Authorization: "Bearer #{token}"
+      }
+    )
+
+    puts music_info.body
   end
 
 end

@@ -6,6 +6,18 @@ class Music
    attr_accessor :artist
    attr_accessor :album
    attr_accessor :track
+   attr_accessor :search_query
+
+  def self.set_params(artist, album, track)
+    @artist = URI::encode(artist)
+    @album = URI::encode(album)
+    @track = URI::encode(track)
+  end
+
+  def self.make_search_query
+    @search_query = @artist + " " + @album + " " + @track
+
+  end
 
   def self.get_new_access_token
     new_token = RestClient::Request.execute(

@@ -2,6 +2,7 @@ class Music
    include ActiveModel::Model
    require 'rest-client'
    require 'base64'
+   require 'uri'
 
    attr_accessor :artist
    attr_accessor :album
@@ -12,6 +13,7 @@ class Music
     @artist = URI::encode(artist)
     @album = URI::encode(album)
     @track = URI::encode(track)
+    get_new_access_token
   end
 
   def self.make_search_query
@@ -34,9 +36,14 @@ class Music
   end
 
   def self.get_music_info(token)
+    uri = URI.parse('https://api.spotify.com/v1/search?')
+    params = URI.decode_www_form(uri.query)
+    params << ['q', @artist]
+    params << ['type', 'artist']
+    uri.query = URI.encode_www_form(params)
     music_info = RestClient::Request.execute(
       method: :get,
-      url: 'https://api.spotify.com/v1/search?q=tania%20bowra&type=artist',
+      url: "#{uri}",
       headers: {
         Authorization: "Bearer #{token}"
       }

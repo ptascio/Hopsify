@@ -6,6 +6,8 @@ class Music
 
    attr_accessor :artist
    attr_accessor :track
+   attr_accessor :track_id
+   attr_accessor :token
    attr_accessor :search_query
 
   def self.set_params(artist, track)
@@ -29,12 +31,11 @@ class Music
       }
     )
 
-    token = JSON.parse(new_token.body)["access_token"]
-    get_music_info(token)
+    @token = JSON.parse(new_token.body)["access_token"]
+    get_music_info
   end
 
-  def self.get_music_info(token)
-    id = "6Hu6dzwlvoyg3zBUC8k4BK"
+  def self.get_music_info
     uri = URI.parse('https://api.spotify.com/v1/search?')
     params = URI.decode_www_form(uri.query)
     params << ['q', "track:#{@track} artist:#{@artist}"]
@@ -45,23 +46,25 @@ class Music
       method: :get,
       url: "#{uri}",
       headers: {
-        Authorization: "Bearer #{token}"
+        Authorization: "Bearer #{@token}"
       }
     )
-   #trackinfo["tracks"]["items"][0]["id"]
-    puts JSON.parse(music_info.body)
+    music_info = JSON.parse(music_info.body)
+    @track_id = music_info["tracks"]["items"][0]["id"]
+    get_track_details
   end
 
-  def self.get_track_details(id)
-    music_info = RestClient::Request.execute(
+  def self.get_track_details
+    uri = URI.parse("https://api.spotify.com/v1/audio-features/#{@track_id}")
+    track_info = RestClient::Request.execute(
       method: :get,
-      url: "https://api.spotify.com/v1/audio-features/#{id}",
+      url: "#{uri}",
       headers: {
-        Authorization: "Bearer #{token}"
+        Authorization: "Bearer #{@token}"
       }
     )
 
-    puts music_info.body
+    puts track_info.body
   end
 
 end

@@ -48,8 +48,8 @@ class Music
         Authorization: "Bearer #{token}"
       }
     )
-
-    puts music_info.body
+   #trackinfo["tracks"]["items"][0]["id"]
+    puts JSON.parse(music_info.body)
   end
 
   def self.get_track_details(id)

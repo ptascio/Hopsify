@@ -1,7 +1,12 @@
 <h1>HI</h1>
 
 <h1>Please fill up the form</h1>
-<%= form_for Music.new, :url => {:action => 'index'} do |f| %>
+<%= form_for @music, :url => {:action => 'index'} do |f| %>
+
+<% if flash[:error] %>
+<p><%= flash[:error] %></p>
+<% end %>
+
   <p>
     Artist<br/><%= f.text_field 'artist' %>
   </p>

@@ -36,14 +36,30 @@ class Music
   end
 
   def self.get_music_info(token)
+    id = "6Hu6dzwlvoyg3zBUC8k4BK"
     uri = URI.parse('https://api.spotify.com/v1/search?')
     params = URI.decode_www_form(uri.query)
     params << ['q', @artist]
-    params << ['type', 'artist']
+    params << ['q', 'artist']
+    params << ['q', @track]
+    params << ['type', 'track']
+    params << ['limit', '1']
     uri.query = URI.encode_www_form(params)
     music_info = RestClient::Request.execute(
       method: :get,
-      url: "#{uri}",
+      url: "https://api.spotify.com/v1/audio-features/#{id}",
+      headers: {
+        Authorization: "Bearer #{token}"
+      }
+    )
+
+    puts music_info.body
+  end
+
+  def self.get_track_details(id)
+    music_info = RestClient::Request.execute(
+      method: :get,
+      url: "https://api.spotify.com/v1/audio-features/#{id}",
       headers: {
         Authorization: "Bearer #{token}"
       }

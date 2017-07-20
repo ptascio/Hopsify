@@ -8,17 +8,15 @@ class Music
    attr_accessor :track
    attr_accessor :track_id
    attr_accessor :token
-   attr_accessor :search_query
+   attr_accessor :artist_info
+   attr_accessor :artist_id
+   attr_accessor :all_info
 
   def self.set_params(artist, track)
     @artist = artist
     @track = track
+    @all_info = []
     get_new_access_token
-  end
-
-  def self.make_search_query
-    @search_query = @artist + " " + @album + " " + @track
-
   end
 
   def self.get_new_access_token
@@ -32,26 +30,41 @@ class Music
     )
 
     @token = JSON.parse(new_token.body)["access_token"]
-    get_music_info
+    get_song_info
   end
 
-  def self.get_music_info
+  def self.get_song_info
     uri = URI.parse('https://api.spotify.com/v1/search?')
     params = URI.decode_www_form(uri.query)
     params << ['q', "track:#{@track} artist:#{@artist}"]
     params << ['type', 'track']
     params << ['limit', '1']
     uri.query = URI.encode_www_form(params)
-    music_info = RestClient::Request.execute(
+    song_info = RestClient::Request.execute(
       method: :get,
       url: "#{uri}",
       headers: {
         Authorization: "Bearer #{@token}"
       }
     )
-    music_info = JSON.parse(music_info.body)
-    @track_id = music_info["tracks"]["items"][0]["id"]
+    song_info = JSON.parse(song_info.body)
+    @track_id = song_info["tracks"]["items"][0]["id"]
+    @artist_id = song_info["tracks"]["items"][0]["album"]["artists"][0]["id"]
     get_track_details
+  end
+
+  def self.get_artist_details
+    uri = URI.parse("https://api.spotify.com/v1/artists/#{@artist_id}")
+    artist_info = RestClient::Request.execute(
+      method: :get,
+      url: "#{uri}",
+      headers: {
+        Authorization: "Bearer #{@token}"
+      }
+    )
+
+    @all_info.push(JSON.parse(artist_info.body))
+    return @all_info
   end
 
   def self.get_track_details
@@ -64,7 +77,8 @@ class Music
       }
     )
 
-    return JSON.parse(track_info.body)
+    @all_info.push(JSON.parse(track_info.body))
+    get_artist_details
   end
 
 end

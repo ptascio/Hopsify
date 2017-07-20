@@ -6,9 +6,8 @@ class MusicsController < ApplicationController
 
   def create
     artist = params[:music][:artist]
-    album = params[:music][:album]
     track = params[:music][:track]
-    Music.set_params(artist, album, track)
+    Music.set_params(artist, track)
   end
 
   def get_new_access_token

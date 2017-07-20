@@ -5,14 +5,12 @@ class Music
    require 'uri'
 
    attr_accessor :artist
-   attr_accessor :album
    attr_accessor :track
    attr_accessor :search_query
 
-  def self.set_params(artist, album, track)
-    @artist = URI::encode(artist)
-    @album = URI::encode(album)
-    @track = URI::encode(track)
+  def self.set_params(artist, track)
+    @artist = artist
+    @track = track
     get_new_access_token
   end
 
@@ -39,15 +37,13 @@ class Music
     id = "6Hu6dzwlvoyg3zBUC8k4BK"
     uri = URI.parse('https://api.spotify.com/v1/search?')
     params = URI.decode_www_form(uri.query)
-    params << ['q', @artist]
-    params << ['q', 'artist']
-    params << ['q', @track]
+    params << ['q', "track:#{@track} artist:#{@artist}"]
     params << ['type', 'track']
     params << ['limit', '1']
     uri.query = URI.encode_www_form(params)
     music_info = RestClient::Request.execute(
       method: :get,
-      url: "https://api.spotify.com/v1/audio-features/#{id}",
+      url: "#{uri}",
       headers: {
         Authorization: "Bearer #{token}"
       }

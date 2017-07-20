@@ -64,7 +64,7 @@ class Music
       }
     )
 
-    puts track_info.body
+    return JSON.parse(track_info.body)
   end
 
 end

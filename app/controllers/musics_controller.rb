@@ -1,18 +1,18 @@
 class MusicsController < ApplicationController
+  attr_accessor :track_details
   def index
-
     render 'index'
   end
 
   def create
     artist = params[:music][:artist]
     track = params[:music][:track]
-    Music.set_params(artist, track)
+    self.track_details = Music.set_params(artist, track)
+    debugger
+    render 'show'
   end
 
-  def get_new_access_token
-  end
+  def show
 
-  def hit_spotify
   end
 end

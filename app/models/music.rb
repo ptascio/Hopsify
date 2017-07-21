@@ -50,7 +50,7 @@ class Music
     song_info = JSON.parse(song_info.body)
     if song_info["tracks"]["items"].empty?
       @all_info.push({"error"=>"We couldn't find that song. Are you sure that the artist and track
-        names are spelled correctly? Keep in mind that not all artists and songs
+        names are spelled correctly? *Keep in mind that not all artists and songs
         are available on the Spotify platform."})
         return @all_info
     else

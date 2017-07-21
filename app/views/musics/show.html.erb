@@ -5,10 +5,30 @@
 
   <p>Dancey: <%= @track_details["danceability"]%></p>
   <p>Energy: <%= @track_details["energy"]%></p>
+  <%= button_to "New Search", root_path %>
 
 <% else %>
 <p><%= @not_found["error"] %></p>
 <p>You entered <%= @artist_name %> as the artist</p>
 <p>and</p>
 <p><%= @track_name%> </p>
+<h1>Please fill up the form</h1>
+<%= form_for Music.new, :url => {:action => 'index'} do |f| %>
+
+<% if flash[:error] %>
+<p><%= flash[:error] %></p>
+ <% flash.clear %>
+<% end %>
+
+  <p>
+    Artist<br/><%= f.text_field 'artist', value: params.include?(:music)? params[:music][:artist] : "" %>
+  </p>
+  <p>
+    Track<br/><%= f.text_field 'track', value: params.include?(:music)? params[:music][:track] : "" %>
+  </p>
+
+  <p>
+    <%= f.submit "Submit Data" %>
+  </p>
+<% end %>
 <% end %>

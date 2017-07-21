@@ -5,7 +5,7 @@
 
   <p>Dancey: <%= @track_details["danceability"]%></p>
   <p>Energy: <%= @track_details["energy"]%></p>
-  <%= button_to "New Search", root_path %>
+  <%= link_to "New Search", root_path %>
 
 <% else %>
 <p><%= @not_found["error"] %></p>

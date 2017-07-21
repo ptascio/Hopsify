@@ -48,9 +48,16 @@ class Music
       }
     )
     song_info = JSON.parse(song_info.body)
-    @track_id = song_info["tracks"]["items"][0]["id"]
-    @artist_id = song_info["tracks"]["items"][0]["album"]["artists"][0]["id"]
-    get_track_details
+    if song_info["tracks"]["items"].empty?
+      @all_info.push({"error"=>"We couldn't find that song. Are you sure that the artist and track
+        names are spelled correctly? Keep in mind that not all artists and songs
+        are available on the Spotify platform."})
+        return @all_info
+    else
+      @track_id = song_info["tracks"]["items"][0]["id"]
+      @artist_id = song_info["tracks"]["items"][0]["album"]["artists"][0]["id"]
+      get_track_details
+    end
   end
 
   def self.get_artist_details

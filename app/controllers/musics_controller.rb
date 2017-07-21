@@ -4,6 +4,7 @@ class MusicsController < ApplicationController
   attr_accessor :artist_name
   attr_accessor :track_name
   attr_accessor :music
+  attr_accessor :not_found
   def index
     @music = Music.new
     render 'index'
@@ -29,8 +30,12 @@ class MusicsController < ApplicationController
       self.artist_name = artist
       self.track_name = track
       all_music_details = Music.set_params(artist, track)
-      self.track_details = all_music_details[0]
-      self.artist_details = all_music_details[1]
+      if all_music_details.length < 2
+        self.not_found = all_music_details[0]
+      else
+        self.track_details = all_music_details[0]
+        self.artist_details = all_music_details[1]
+      end
       render 'show'
     end
 

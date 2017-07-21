@@ -1,5 +1,14 @@
-<h1><%= @track_name %></h1>
-<h2>by <%= @artist_name %></h2>
 
-<p>Dancey: <%= @track_details["danceability"]%></p>
-<p>Energy: <%= @track_details["energy"]%></p>
+<% if @track_details %>
+  <h1><%= @track_name %></h1>
+  <h2>by <%= @artist_name %></h2>
+
+  <p>Dancey: <%= @track_details["danceability"]%></p>
+  <p>Energy: <%= @track_details["energy"]%></p>
+
+<% else %>
+<p><%= @not_found["error"] %></p>
+<p>You entered <%= @artist_name %> as the artist</p>
+<p>and</p>
+<p><%= @track_name%> </p>
+<% end %>

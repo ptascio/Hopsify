@@ -12,7 +12,7 @@
 <p>You entered <%= @artist_name %> as the artist</p>
 <p>and</p>
 <p><%= @track_name%> </p>
-<h1>Please fill up the form</h1>
+<h1>Try A New Search</h1>
 <%= form_for Music.new, :url => {:action => 'index'} do |f| %>
 
 <% if flash[:error] %>
@@ -21,10 +21,10 @@
 <% end %>
 
   <p>
-    Artist<br/><%= f.text_field 'artist', value: params.include?(:music)? params[:music][:artist] : "" %>
+    Artist<br/><%= f.text_field 'artist' %>
   </p>
   <p>
-    Track<br/><%= f.text_field 'track', value: params.include?(:music)? params[:music][:track] : "" %>
+    Track<br/><%= f.text_field 'track' %>
   </p>
 
   <p>

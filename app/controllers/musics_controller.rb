@@ -13,9 +13,17 @@ class MusicsController < ApplicationController
     artist = params[:music][:artist]
     track = params[:music][:track]
 
-    if ((artist.length < 1) || (track.length < 1))
+    if ((artist.length < 1) && (track.length < 1))
       @music = Music.new
       flash[:error] = "Both Fields Must Be Filled In!"
+      render 'index'
+    elsif (artist.length < 1)
+      @music = Music.new
+      flash[:error] = "Artist Field Must Be Filled In!"
+      render 'index'
+    elsif (track.length < 1)
+      @music = Music.new
+      flash[:error] = "Track Field Must Be Filled In!"
       render 'index'
     else
       self.artist_name = artist

@@ -8,10 +8,10 @@
 <% end %>
 
   <p>
-    Artist<br/><%= f.text_field 'artist', value: params.include?(:music)? params[:music][:artist] : "" %>
+    Artist<br/><%= f.text_field 'artist' %>
   </p>
   <p>
-    Track<br/><%= f.text_field 'track', value: params.include?(:music)? params[:music][:track] : "" %>
+    Track<br/><%= f.text_field 'track' %>
   </p>
 
   <p>

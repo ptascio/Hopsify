@@ -12,6 +12,7 @@ class MusicsController < ApplicationController
   def create
     artist = params[:music][:artist]
     track = params[:music][:track]
+
     if ((artist.length < 1) || (track.length < 1))
       @music = Music.new
       flash[:error] = "Both Fields Must Be Filled In!"

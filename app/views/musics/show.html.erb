@@ -7,7 +7,7 @@
   <p>Dancey: <%= @track_details["danceability"]%></p>
   <p>Energy: <%= @track_details["energy"]%></p>
   <%= link_to "New Search", root_path %>
-  
+  <%= link_to "Find A Beer", beers_path(info: { "track_details" => @track_details, "artist_details" => @artist_details }) %>
 
 <% else %>
 <p><%= @not_found["error"] %></p>

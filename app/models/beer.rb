@@ -22,9 +22,9 @@ class Beer
      params = URI.decode_www_form(uri.query)
      params << ['key', ENV["brewery_key"]]
      params << ['styleId', "93"]
+     params << ['order', 'random']
      params << ['randomCount', "3"]
      uri.query = URI.encode_www_form(params)
-     debugger
      selected_beer = RestClient::Request.execute(
       method: :get,
       url: "#{uri}",

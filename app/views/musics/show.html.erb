@@ -1,11 +1,13 @@
 
 <% if @track_details %>
+
   <h1><%= @track_name %></h1>
   <h2>by <%= @artist_name %></h2>
 
   <p>Dancey: <%= @track_details["danceability"]%></p>
   <p>Energy: <%= @track_details["energy"]%></p>
   <%= link_to "New Search", root_path %>
+  
 
 <% else %>
 <p><%= @not_found["error"] %></p>

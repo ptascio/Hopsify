@@ -94,6 +94,10 @@ class Music
     id=""
       if (genres.empty?)
         id = "99"
+      elsif (genres.include?("pop") || genres.include?("dance pop") || genres.include?("post-teen pop"))
+        id = "95"
+      elsif (genres.include?("soft rock") || genres.include?("mellow gold") || genres.include?("album"))
+        id = "140"
       elsif (genres.include?("hip hop") || genres.include?("rap"))
         id = "100"
       elsif (genres.include?("alternative rock") || genres.include?("indie rock"))
@@ -104,8 +108,10 @@ class Music
         id = "167"
       elsif (genres.include?("experimental") || genres.include?("avant-garde") || genres.include?("free jazz"))
         id = "130"
+      elsif (genres.include?("metal") || genres.include?("death metal") || genres.include?("brutal death metal") || genres.include?("groove metal"))
+        id="19"
       else
-        num = rand(90..120)
+        num = rand(13..120)
         id = num.to_s
       end
     @all_info.push(id)

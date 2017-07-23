@@ -72,7 +72,7 @@ class Music
     )
     @artist_info = JSON.parse(artist_info.body)
     @all_info.push(@artist_info)
-    return @all_info
+    analyze_artist_genre(@artist_info)
   end
 
   def self.get_track_details
@@ -89,5 +89,20 @@ class Music
     get_artist_details
   end
 
+  def self.analyze_artist_genre(artist_info)
+    genres = artist_info["genres"]
+    id=""
+      if (genres.empty?)
+        id = "99"
+      elsif (genres.include?("hip hop") || genres.include?("rap"))
+        id = "100"
+      elsif (genres.include?("alternative rock") || genres.include?("indie rock"))
+        id ="93"
+      elsif (genres.include?("blues-rock") || genres.include?("classic rock"))
+        id = 
+      end
+    @all_info.push(id)
+    return @all_info
+  end
 
 end

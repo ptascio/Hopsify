@@ -33,8 +33,6 @@ class Beer
      return JSON.parse(selected_beer.body)
    end
 
-   def self.analyze_artist_genre(info)
-     debugger
-   end
+  
 
 end

@@ -5,6 +5,7 @@ class MusicsController < ApplicationController
   attr_accessor :track_name
   attr_accessor :music
   attr_accessor :not_found
+  attr_accessor :beer_id
   def index
     @music = Music.new
     render 'index'
@@ -35,6 +36,7 @@ class MusicsController < ApplicationController
       else
         self.track_details = all_music_details[0]
         self.artist_details = all_music_details[1]
+        self.beer_id = all_music_details[2]
       end
       render 'show'
     end

@@ -11,6 +11,7 @@ class Music
    attr_accessor :artist_info
    attr_accessor :artist_id
    attr_accessor :all_info
+   attr_accessor :artist_genre
 
   def self.set_params(artist, track)
     @artist = artist
@@ -69,8 +70,8 @@ class Music
         Authorization: "Bearer #{@token}"
       }
     )
-
-    @all_info.push(JSON.parse(artist_info.body))
+    @artist_info = JSON.parse(artist_info.body)
+    @all_info.push(@artist_info)
     return @all_info
   end
 
@@ -87,5 +88,6 @@ class Music
     @all_info.push(JSON.parse(track_info.body))
     get_artist_details
   end
+
 
 end

@@ -17,11 +17,11 @@ class Beer
      return JSON.parse(selected_beer.body)
    end
 
-   def self.get_beer_by_style
+   def self.get_beer_by_style(id)
      uri = URI.parse('http://api.brewerydb.com/v2/beers?')
      params = URI.decode_www_form(uri.query)
      params << ['key', ENV["brewery_key"]]
-     params << ['styleId', "93"]
+     params << ['styleId', "#{id}"]
      params << ['order', 'random']
      params << ['randomCount', "3"]
      uri.query = URI.encode_www_form(params)
@@ -31,6 +31,10 @@ class Beer
      )
 
      return JSON.parse(selected_beer.body)
+   end
+
+   def self.analyze_artist_genre(info)
+     debugger
    end
 
 end

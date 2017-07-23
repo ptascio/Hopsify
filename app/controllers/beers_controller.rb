@@ -7,7 +7,8 @@ class BeersController < ApplicationController
   end
 
   def create
-
-    render "show"
+    debugger
+    @beer = Beer.get_beer_by_style(params[:beer_id])
+    render "index"
   end
 end

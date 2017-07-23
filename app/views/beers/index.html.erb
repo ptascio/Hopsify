@@ -5,3 +5,6 @@
 <p>
   <%= @beer %>
 </p>
+
+<%= button_to "Find more beers", params: {:beer_id => @id} %>
+<%= link_to "New Search", root_path %>

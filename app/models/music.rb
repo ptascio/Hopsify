@@ -99,7 +99,14 @@ class Music
       elsif (genres.include?("alternative rock") || genres.include?("indie rock"))
         id ="93"
       elsif (genres.include?("blues-rock") || genres.include?("classic rock"))
-        id = 
+        id = "94"
+      elsif (genres.include?("edm") || genres.include?("electro house"))
+        id = "167"
+      elsif (genres.include?("experimental") || genres.include?("avant-garde") || genres.include?("free jazz"))
+        id = "130"
+      else
+        num = rand(90..120)
+        id = num.to_s
       end
     @all_info.push(id)
     return @all_info

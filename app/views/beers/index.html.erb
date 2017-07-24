@@ -1,16 +1,40 @@
 <h1>Beers</h1>
 
-<p>
-  <%= @id %>
-</p>
-<p>
+
+<div class="">
+  <h3><%= @artist_name %></h3>
+    <%= image_tag  @artist_pic %>
+
+</div>
+<div class="">
+  <h3><%= @beer["data"][0]["style"]["name"] %></h3>
+  <p><%= @beer["data"][0]["style"]["description"]%></p>
+</div>
+<div>
   <% beer_info = @beer["data"] %>
   <% beer_info.each do |beer| %>
-    <h3><%= beer["nameDisplay"] %></h3>
-    <p><%= beer["description"] %></p>
-    <%= image_tag beer["labels"]["medium"] %>
-  <% end %>
-</p>
 
-<%= button_to "Find more beers", params: {:beer_id => @id} %>
+    <h3><%= beer["nameDisplay"] %></h3>
+    <% if beer["description"].nil? %>
+    <p><em>No description available...</em></p>
+    <p><em>...you'll have to try it and let us know what you think!</em></p>
+    <% else %>
+    <p><%= beer["description"] %></p>
+    <% end %>
+    <% if beer["labels"]%>
+      <%= image_tag beer["labels"]["medium"] %>
+    <% else %>
+    <p><em>No Label available...</em></p>
+    <p><em>...so here's a picture of a pint!</em></p>
+    <div style="background-color: #FFCA5A; width:256px; height:256px;">
+      <%= image_tag("pint_medium.png") %>
+    </div>
+
+    <% end %>
+  <% end %>
+</div>
+
+<% if @id != "6969" %>
+  <%= button_to "Find more beers", params: {:beer_id => @id, :artist_pic => @artist_pic, :artist_name => @artist_name } %>
+<% end %>
 <%= link_to "New Search", root_path %>

@@ -3,6 +3,8 @@ class BeersController < ApplicationController
 
   def index
     @id = params[:info][:beer_id]
+    @artist_pic = params["info"]["artist_details"]["images"][1]["url"]
+    @artist_name = params["info"]["artist_details"]["name"]
     if @id == "6969"
       @beer = Beer.get_bud_light
     else
@@ -15,6 +17,8 @@ class BeersController < ApplicationController
     if params[:beer_id] == "6969"
       @beer = Beer.get_bud_light
     else
+      @artist_pic = params[:artist_pic]
+      @artist_name = params[:artist_name]
       @beer = Beer.get_beer_by_style(params[:beer_id])
     end
     render "index"

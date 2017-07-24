@@ -93,7 +93,7 @@ class Music
     genres = artist_info["genres"]
     id=""
       if (genres.empty?)
-        id = "99"
+        id = ["22", "90", "57", "80"].sample
       elsif (genres.include?("pop") || genres.include?("dance pop") || genres.include?("post-teen pop"))
         id = "95"
       elsif (genres.include?("soft rock") || genres.include?("mellow gold") || genres.include?("album"))

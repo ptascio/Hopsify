@@ -47,7 +47,7 @@ class Beer
       method: :get,
       url: "#{uri}",
      )
-     debugger
+     
      return JSON.parse(selected_beer.body)
    end
 

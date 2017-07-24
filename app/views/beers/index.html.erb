@@ -4,7 +4,12 @@
   <%= @id %>
 </p>
 <p>
-  <%= @beer %>
+  <% beer_info = @beer["data"] %>
+  <% beer_info.each do |beer| %>
+    <h3><%= beer["nameDisplay"] %></h3>
+    <p><%= beer["description"] %></p>
+    <%= image_tag beer["labels"]["medium"] %>
+  <% end %>
 </p>
 
 <%= button_to "Find more beers", params: {:beer_id => @id} %>

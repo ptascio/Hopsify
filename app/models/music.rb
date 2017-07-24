@@ -100,8 +100,10 @@ class Music
         id = "140"
       elsif (genres.include?("hip hop") || genres.include?("rap"))
         id = "100"
-      elsif (genres.include?("alternative rock") || genres.include?("indie rock"))
-        id ="93"
+      elsif (genres.include?("indie folk") || genres.include?("indie rock") || genres.include?("indie rock"))
+        id ="29"
+      elsif (genres.include?("grunge") || genres.include?("post grunge") || genres.include?("alternative metal"))
+        id = "93"
       elsif (genres.include?("blues-rock") || genres.include?("classic rock"))
         id = "94"
       elsif (genres.include?("edm") || genres.include?("electro house"))

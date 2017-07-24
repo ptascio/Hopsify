@@ -38,6 +38,7 @@ class MusicsController < ApplicationController
         self.artist_details = all_music_details[1]
         self.beer_id = all_music_details[2]
       end
+      debugger
       render 'show'
     end
 

@@ -7,7 +7,6 @@ class BeersController < ApplicationController
   end
 
   def create
-    debugger
     @beer = Beer.get_beer_by_style(params[:beer_id])
     render "index"
   end

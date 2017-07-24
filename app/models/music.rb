@@ -98,7 +98,7 @@ class Music
         id = "95"
       elsif (genres.include?("soft rock") || genres.include?("mellow gold") || genres.include?("album"))
         id = "140"
-      elsif (genres.include?("hip hop") || genres.include?("rap"))
+      elsif (genres.include?("hip hop") || genres.include?("rap") || genres.include?("trap music"))
         id = "100"
       elsif (genres.include?("indie folk") || genres.include?("indie rock") || genres.include?("indie rock"))
         id ="29"
@@ -106,9 +106,9 @@ class Music
         id = "93"
       elsif (genres.include?("blues-rock") || genres.include?("classic rock"))
         id = "94"
-      elsif (genres.include?("edm") || genres.include?("electro house"))
-        id = "167"
-      elsif (genres.include?("experimental") || genres.include?("avant-garde") || genres.include?("free jazz"))
+      elsif (genres.include?("edm") || genres.include?("electro house") || genres.include?("brostep"))
+        id = "6969"
+      elsif (genres.include?("experimental") || genres.include?("avant-garde") || genres.include?("free jazz") || genres.include?("noise") || genres.include?("rock noise"))
         id = "130"
       elsif (genres.include?("metal") || genres.include?("death metal") || genres.include?("brutal death metal") || genres.include?("groove metal"))
         id="19"

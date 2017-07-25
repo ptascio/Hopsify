@@ -2,15 +2,20 @@ class BeersController < ApplicationController
 
 
   def index
-    @id = params[:info][:beer_id]
-    @artist_pic = params["info"]["artist_details"]["images"][1]["url"]
-    @artist_name = params["info"]["artist_details"]["name"]
-    if @id == "6969"
-      @beer = Beer.get_bud_light
+    if params[:info].nil?
+      redirect_to root_path
     else
-      @beer = Beer.get_beer_by_style(params[:info][:beer_id])
+      @id = params[:info][:beer_id]
+      @artist_pic = params["info"]["artist_details"]["images"][1]["url"]
+      @artist_name = params["info"]["artist_details"]["name"]
+      if @id == "6969"
+        @beer = Beer.get_bud_light
+      else
+        @beer = Beer.get_beer_by_style(params[:info][:beer_id])
+      end
+      render 'index'
     end
-    render 'index'
+
   end
 
   def create

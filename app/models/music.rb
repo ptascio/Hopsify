@@ -106,6 +106,8 @@ class Music
         id = "36"
       elsif (genres.include?("punk") || genres.include?("oi") || genres.include?("ska punk") || genres.include?("skate punk"))
         id = "11"
+      elsif (genres.include?("experimental") || genres.include?("avant-garde") || genres.include?("free jazz") || genres.include?("noise") || genres.include?("rock noise"))
+        id = "130"
       elsif (genres.include?("soft rock") || genres.include?("mellow gold"))
         id = "140"
       elsif (genres.include?("hip hop") || genres.include?("rap") || genres.include?("trap music"))
@@ -118,8 +120,6 @@ class Music
         id = "95"
       elsif (genres.include?("rock") || genres.include?("classic rock") || genres.include?("hard rock"))
         id = "93"
-      elsif (genres.include?("experimental") || genres.include?("avant-garde") || genres.include?("free jazz") || genres.include?("noise") || genres.include?("rock noise"))
-        id = "130"
       else
         num = rand(13..120)
         id = num.to_s

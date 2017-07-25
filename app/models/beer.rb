@@ -18,6 +18,7 @@ class Beer
    end
 
    def self.get_beer_by_style(id)
+     debugger
      uri = URI.parse('http://api.brewerydb.com/v2/beers?')
      params = URI.decode_www_form(uri.query)
      params << ['key', ENV["brewery_key"]]
@@ -47,7 +48,7 @@ class Beer
       method: :get,
       url: "#{uri}",
      )
-     
+
      return JSON.parse(selected_beer.body)
    end
 

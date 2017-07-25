@@ -2,6 +2,7 @@ class BeersController < ApplicationController
 
 
   def index
+    debugger
     if params[:info].nil?
       redirect_to root_path
     else
@@ -19,11 +20,13 @@ class BeersController < ApplicationController
   end
 
   def create
+    debugger
     if params[:beer_id] == "6969"
       @beer = Beer.get_bud_light
     else
       @artist_pic = params[:artist_pic]
       @artist_name = params[:artist_name]
+      @id = params[:beer_id]
       @beer = Beer.get_beer_by_style(params[:beer_id])
     end
     render "index"

@@ -18,7 +18,6 @@ class Beer
    end
 
    def self.get_beer_by_style(id)
-     debugger
      uri = URI.parse('http://api.brewerydb.com/v2/beers?')
      params = URI.decode_www_form(uri.query)
      params << ['key', ENV["brewery_key"]]

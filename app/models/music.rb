@@ -96,20 +96,28 @@ class Music
         id = ["22", "90", "57", "80"].sample
       elsif (genres.include?("edm") || genres.include?("electro house") || genres.include?("brostep"))
         id = "6969"
+      elsif (genres.include?("latin") || genres.include?("tropical") || genres.include?("latin pop") || genres.include?("reggaeton"))
+        id = "80"
+      elsif (genres.include?("r&b") || genres.include?("urban contemporary") || genres.include?("neo soul") || genres.include?("new jack swing"))
+        id = "109"
       elsif (genres.include?("metal") || genres.include?("death metal") || genres.include?("brutal death metal") || genres.include?("groove metal"))
         id="19"
-      elsif (genres.include?("pop") || genres.include?("dance pop") || genres.include?("post-teen pop"))
-        id = "95"
-      elsif (genres.include?("soft rock") || genres.include?("mellow gold") || genres.include?("album rock"))
+      elsif (genres.include?("pop") || genres.include?("dance pop") || genres.include?("post-teen pop") || genres.include?("viral pop"))
+        id = "36"
+      elsif (genres.include?("punk") || genres.include?("oi") || genres.include?("ska punk") || genres.include?("skate punk"))
+        id = "11"
+      elsif (genres.include?("soft rock") || genres.include?("mellow gold"))
         id = "140"
       elsif (genres.include?("hip hop") || genres.include?("rap") || genres.include?("trap music"))
-        id = "100"
-      elsif (genres.include?("indie folk") || genres.include?("indie rock") || genres.include?("indie rock"))
+        id = "101"
+      elsif (genres.include?("indie folk") || genres.include?("indie rock") || genres.include?("neo-psychedlic") || genres.include?("lo fi"))
         id ="29"
       elsif (genres.include?("grunge") || genres.include?("post grunge") || genres.include?("alternative metal"))
+        id = "97"
+      elsif (genres.include?("southern rock") || genres.include?("soft rock") || genres.include?("blues-rock"))
+        id = "95"
+      elsif (genres.include?("rock") || genres.include?("classic rock") || genres.include?("hard rock"))
         id = "93"
-      elsif (genres.include?("blues-rock") || genres.include?("classic rock"))
-        id = "94"
       elsif (genres.include?("experimental") || genres.include?("avant-garde") || genres.include?("free jazz") || genres.include?("noise") || genres.include?("rock noise"))
         id = "130"
       else

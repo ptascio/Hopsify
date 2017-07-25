@@ -34,11 +34,9 @@
   <% end %>
 </div>
 
-<% if ((@id != "6969") && (@search_count < 3)) %>
-<% debugger %>
+<% if ((@id != "6969") && (@search_count.to_i < 3)) %>
   <%= button_to "Find more beers", params: {:beer_id => @id, :artist_pic => @artist_pic, :artist_name => @artist_name, :search_count => @search_count } %>
 <% else %>
-<% debugger %>
   <p>That's all the beers we have for this song! Try a new search!</p>
 <% end %>
 <%= link_to "New Search", root_path %>

@@ -23,7 +23,6 @@ class BeersController < ApplicationController
       new_count = params[:search_count].to_i
       new_count += 1
       @search_count = new_count
-      debugger
       @artist_pic = params[:artist_pic]
       @artist_name = params[:artist_name]
       @id = params[:beer_id]

@@ -20,7 +20,10 @@ class BeersController < ApplicationController
   end
 
   def create
-    debugger
+      if params["custom_search"]
+        @beer = Beer.get_by_description
+        render 'show'
+      else
       new_count = params[:search_count].to_i
       new_count += 1
       @search_count = new_count
@@ -28,7 +31,9 @@ class BeersController < ApplicationController
       @artist_name = params[:artist_name]
       @id = params[:beer_id]
       @beer = Beer.get_beer_by_style(params[:beer_id])
-    render "index"
+      render "index"
+      end
+
   end
 
   def new

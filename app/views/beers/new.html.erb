@@ -1,8 +1,14 @@
 <%= form_tag @beer do %>
   <%= radio_button_tag(:description, "low-cal") %>
-  <%= label_tag(:description, "Low calorie") %>
+  <%= label_tag(:description, "I'm on a diet") %>
+  <%= radio_button_tag(:description, "low-carb-low-cal") %>
+  <%= label_tag(:description, "Seriously, I'm on a diet") %>
   <%= radio_button_tag(:description, "us-pils") %>
-  <%= label_tag(:description, "American-Style Pilsener") %>
-  <% hidden_field_tag "custom_search", "true"%>
+  <%= label_tag(:description, "Give me something classic, from the U.S.") %>
+  <%= radio_button_tag(:description, "pilsener") %>
+  <%= label_tag(:description, "IPAs Stay Away!") %>
+  <%= radio_button_tag(:description, "ice") %>
+  <%= label_tag(:description, "Something watery, perhaps?") %>
+  <%= hidden_field_tag "custom_search", "true"%>
   <%= submit_tag "Create" %>
 <% end %>

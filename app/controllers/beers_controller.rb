@@ -44,6 +44,7 @@ class BeersController < ApplicationController
 
   def new
     @beer = Beer.new
+    flash[:error] = ""
     render 'new'
   end
 end

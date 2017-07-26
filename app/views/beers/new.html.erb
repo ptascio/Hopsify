@@ -1,0 +1,8 @@
+<%= form_tag @beer do %>
+  <%= radio_button_tag(:description, "low-cal") %>
+  <%= label_tag(:description, "Low calorie") %>
+  <%= radio_button_tag(:description, "us-pils") %>
+  <%= label_tag(:description, "American-Style Pilsener") %>
+  <% hidden_field_tag "custom_search", "true"%>
+  <%= submit_tag "Create" %>
+<% end %>

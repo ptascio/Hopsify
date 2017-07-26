@@ -51,6 +51,9 @@ class Beer
      return JSON.parse(selected_beer.body)
    end
 
+   def self.description
+   end
+
 
 
 end

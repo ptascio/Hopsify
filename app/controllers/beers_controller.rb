@@ -1,5 +1,5 @@
 class BeersController < ApplicationController
-
+  attr_accessor :beer
 
   def index
     if params[:info].nil?
@@ -20,6 +20,7 @@ class BeersController < ApplicationController
   end
 
   def create
+    debugger
       new_count = params[:search_count].to_i
       new_count += 1
       @search_count = new_count
@@ -28,5 +29,10 @@ class BeersController < ApplicationController
       @id = params[:beer_id]
       @beer = Beer.get_beer_by_style(params[:beer_id])
     render "index"
+  end
+
+  def new
+    @beer = Beer.new
+    render 'new'
   end
 end

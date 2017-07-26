@@ -1,5 +1,8 @@
 <h1>Okay, You Just Want To Explore Beers</h1>
 <p>Tell us, what are you looking for?</p>
+<% if flash[:error] %>
+  <p><%= flash[:error] %></p>
+<% end %>
 <%= form_tag @beer do %>
   <%= radio_button_tag(:description, "adventure") %>
   <%= label_tag(:description, "I want something adventerous that I've never tried before!") %><br>

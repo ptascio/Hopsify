@@ -21,7 +21,8 @@ class BeersController < ApplicationController
 
   def create
       if params["custom_search"]
-        @beer = Beer.get_by_description
+        beer_type = params["description"]
+        @beer = Beer.get_by_description(beer_type)
         render 'show'
       else
       new_count = params[:search_count].to_i

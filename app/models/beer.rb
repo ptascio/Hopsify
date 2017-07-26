@@ -51,7 +51,12 @@ class Beer
      return JSON.parse(selected_beer.body)
    end
 
-   def self.description
+   def self.get_by_description(type)
+     id = ""
+     if type=="us-classic"
+       id = ["93", "98"].sample
+     end
+     get_beer_by_style(id)
    end
 
 

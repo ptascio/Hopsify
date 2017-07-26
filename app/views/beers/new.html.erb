@@ -1,13 +1,17 @@
 <h1>Okay, You Just Want To Explore Beers</h1>
 <p>Tell us, what are you looking for?</p>
 <%= form_tag @beer do %>
-  <%= radio_button_tag(:description, "low-cal") %>
+  <%= radio_button_tag(:description, "adventure") %>
+  <%= label_tag(:description, "I want something adventerous that I've never tried before!") %><br>
+  <%= radio_button_tag(:description, "diet") %>
   <%= label_tag(:description, "I'm on a diet") %><br>
+  <%= radio_button_tag(:description, "coffee") %>
+  <%= label_tag(:description, "Maybe something with a little pick-me-up?") %><br>
   <%= radio_button_tag(:description, "us-classic") %>
   <%= label_tag(:description, "Give me something classic, from the U.S.") %><br>
   <%= radio_button_tag(:description, "pilsener") %>
-  <%= label_tag(:description, "IPAs Stay Away!") %><br>
-  <%= radio_button_tag(:description, "low-carb-low-cal") %>
+  <%= label_tag(:description, "Real beer fan, right here!") %><br>
+  <%= radio_button_tag(:description, "super-diet") %>
   <%= label_tag(:description, "Seriously, I'm on a diet") %><br>
   <%= radio_button_tag(:description, "ice") %>
   <%= label_tag(:description, "Something watery, perhaps?") %><br>

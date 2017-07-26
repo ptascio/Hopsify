@@ -53,8 +53,20 @@ class Beer
 
    def self.get_by_description(type)
      id = ""
-     if type=="us-classic"
+     if type == "us-classic"
        id = ["93", "98"].sample
+     elsif type == "diet"
+       id = "94"
+     elsif type == "super-diet"
+       id = "95"
+     elsif type == "ice"
+       id = "99"
+     elsif type == "pilsener"
+       id = ["75", "80", "73", "106"].sample
+     elsif type == "adventure"
+       id = ["130", "119", "122"].sample
+     elsif type == "coffee"
+       id = ["123", "162"].sample
      end
      get_beer_by_style(id)
    end

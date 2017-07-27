@@ -30,14 +30,14 @@ class BeersController < ApplicationController
           render 'show'
         end
       else
-      new_count = params[:search_count].to_i
-      new_count += 1
-      @search_count = new_count
-      @artist_pic = params[:artist_pic]
-      @artist_name = params[:artist_name]
-      @id = params[:beer_id]
-      @beer = Beer.get_beer_by_style(params[:beer_id])
-      render "index"
+        new_count = params[:search_count].to_i
+        new_count += 1
+        @search_count = new_count
+        @artist_pic = params[:artist_pic]
+        @artist_name = params[:artist_name]
+        @id = params[:beer_id]
+        @beer = Beer.get_beer_by_style(params[:beer_id])
+        render "index"
       end
 
   end

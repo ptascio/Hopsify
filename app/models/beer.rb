@@ -67,6 +67,9 @@ class Beer
        id = ["130", "119", "122"].sample
      elsif type == "coffee"
        id = ["123", "162"].sample
+     elsif type == "surprise"
+       num = rand(13..120)
+       id = num.to_s
      end
      get_beer_by_style(id)
    end

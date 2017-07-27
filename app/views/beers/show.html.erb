@@ -1,5 +1,6 @@
 
-<%= button_to "More of this", new_beer_path, params: { beer_id: @beer["data"][0]["styleId"], more_of_the_same: "true" } %><br>
+<%= button_to "More of this", beers_path, params: { beer_id: @beer["data"][0]["styleId"], more_of_the_same: "true" } %><br>
+<%= button_to "Suprise me again!", beers_path, params: { custom_search: "true", description: "surprise" } %><br>
 <%= link_to "Back to beer search again", new_beer_path %><br>
 <%= link_to "Find beers by song", root_path %><br>
 <%= link_to "What song should I listen to?", root_path %><br>

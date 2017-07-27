@@ -30,6 +30,9 @@ class BeersController < ApplicationController
           @beer = Beer.get_by_description(beer_type)
           render 'show'
         end
+      elsif params["more_of_the_same"]
+        @beer = Beer.get_beer_by_style(params[:beer_id])
+        render 'show'
       else
         new_count = params[:search_count].to_i
         new_count += 1

@@ -1,5 +1,6 @@
 class BeersController < ApplicationController
   attr_accessor :beer
+  attr_accessor :search_count
 
   def index
     if params[:info].nil?
@@ -20,17 +21,30 @@ class BeersController < ApplicationController
   end
 
   def create
-    debugger
       if params["custom_search"]
         if params["description"].nil?
           flash[:error] = "You need to choose what you're in the mood for!"
           render 'new'
         else
           beer_type = params["description"]
+          if params["search_count"]
+            new_count = params[:search_count].to_i
+            new_count += 1
+            @search_count = new_count
+          else
+            @search_count = 1
+          end
           @beer = Beer.get_by_description(beer_type)
           render 'show'
         end
       elsif params["more_of_the_same"]
+        if params["search_count"]
+          new_count = params[:search_count].to_i
+          new_count += 1
+          @search_count = new_count
+        else
+          @search_count = 1
+        end
         @beer = Beer.get_beer_by_style(params[:beer_id])
         render 'show'
       else
@@ -48,6 +62,7 @@ class BeersController < ApplicationController
 
   def new
     @beer = Beer.new
+
     flash[:error] = ""
     render 'new'
   end

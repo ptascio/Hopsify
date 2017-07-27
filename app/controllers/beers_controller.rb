@@ -20,6 +20,7 @@ class BeersController < ApplicationController
   end
 
   def create
+    debugger
       if params["custom_search"]
         if params["description"].nil?
           flash[:error] = "You need to choose what you're in the mood for!"

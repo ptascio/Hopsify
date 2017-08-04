@@ -1,21 +1,39 @@
-<h1>HI</h1>
-<%= link_to "I just want a beer, thank you", new_beer_path %>
-<h1>First let us know what you're listening to:</h1>
-<%= form_for @music, :url => {:action => 'index'} do |f| %>
+<div class="container-fluid text-center">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>HOPSIFY</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>First let us know what you're listening to:</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <%= form_for @music, :url => {:action => 'index'} do |f| %>
 
-<% if flash[:error] %>
-<p><%= flash[:error] %></p>
- <% flash.clear %>
-<% end %>
+        <% if flash[:error] %>
+        <p><%= flash[:error] %></p>
+         <% flash.clear %>
+        <% end %>
 
-  <p>
-    Artist<br/><%= f.text_field 'artist', value: params.include?(:music)? params[:music][:artist] : "" %>
-  </p>
-  <p>
-    Track<br/><%= f.text_field 'track', value: params.include?(:music)? params[:music][:track] : "" %>
-  </p>
+          <p>
+            Artist<br/><%= f.text_field 'artist', value: params.include?(:music)? params[:music][:artist] : "" %>
+          </p>
+          <p>
+            Track<br/><%= f.text_field 'track', value: params.include?(:music)? params[:music][:track] : "" %>
+          </p>
 
-  <p>
-    <%= f.submit "Find Song" %>
-  </p>
-<% end %>
+          <p>
+            <%= f.submit "Find Song" %>
+          </p>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <%= link_to "I just want a beer, thank you", new_beer_path %>
+    </div>
+  </div>
+</div>

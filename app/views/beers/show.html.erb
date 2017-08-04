@@ -1,4 +1,4 @@
-<% if @search_count < 3%>
+<% if @search_count < 3 %>
   <%= button_to "More of this", beers_path, params: { beer_id: @beer["data"][0]["styleId"], more_of_the_same: "true", search_count: @search_count } %><br>
   <%= button_to "Suprise me again!", beers_path, params: { custom_search: "true", description: "surprise", search_count: @search_count } %><br>
 <% end %>

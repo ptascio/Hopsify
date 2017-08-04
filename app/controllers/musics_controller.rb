@@ -7,6 +7,7 @@ class MusicsController < ApplicationController
   attr_accessor :not_found
   attr_accessor :beer_id
   def index
+    puts "NOW HEEEERE"
     @music = Music.new
     render 'index'
   end
@@ -17,8 +18,9 @@ class MusicsController < ApplicationController
 
     if ((artist.length < 1) && (track.length < 1))
       @music = Music.new
+      puts "IN HEEERE"
       flash[:error] = "Both Fields Must Be Filled In!"
-      render 'index'
+      render "index"
     elsif (artist.length < 1)
       @music = Music.new
       flash[:error] = "Artist Field Must Be Filled In!"

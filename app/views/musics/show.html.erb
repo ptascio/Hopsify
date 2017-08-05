@@ -1,14 +1,74 @@
+<div class="container-fluid">
+  <% if @track_details %>
+  <div class="row">
+    <div class="col-sm-12">
+      <h1><%= @track_name %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+        <h2>by <%= @artist_name %></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <%= image_tag @artist_details["images"][1]["url"] %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <p>Dancey: <%= @track_details["danceability"]%></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+        <p>Energy: <%= @track_details["energy"]%></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <%= link_to "New Search", root_path %>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <%= link_to "Find A Beer", beers_path(info: { "beer_id" => @beer_id, "track_details" => @track_details, "artist_details" => @artist_details, "search_count" => 1 }) %>
+      </div>
+    </div>
+  </div>
+  <% else %>
+  <div class="row">
+    <div class="col-sm-12">
+      <h1><%= @track_name %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+        <h2>by <%= @artist_name %></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
 
-<% if @track_details %>
-  <h1><%= @track_name %></h1>
-  <h2>by <%= @artist_name %></h2>
-<%= image_tag @artist_details["images"][1]["url"] %>
-  <p>Dancey: <%= @track_details["danceability"]%></p>
-  <p>Energy: <%= @track_details["energy"]%></p>
-  <%= link_to "New Search", root_path %>
-  <%= link_to "Find A Beer", beers_path(info: { "beer_id" => @beer_id, "track_details" => @track_details, "artist_details" => @artist_details, "search_count" => 1 }) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
 
-<% else %>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
 <p><%= @not_found["error"] %></p>
 <p>You entered <%= @artist_name %> as the artist</p>
 <p>and</p>
@@ -31,5 +91,4 @@
   <p>
     <%= f.submit "Submit Data" %>
   </p>
-<% end %>
 <% end %>

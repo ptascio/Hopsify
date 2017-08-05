@@ -13,7 +13,6 @@
     <div class="col-sm-12">
       <% if flash[:error] %>
       <p><%= flash[:error] %></p>
-       <% flash[:error] = nil %>
       <% end %>
       <%= form_for @music, :url => {:action => 'index'} do |f| %>
 

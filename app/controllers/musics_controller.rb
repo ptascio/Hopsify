@@ -15,10 +15,12 @@ class MusicsController < ApplicationController
   def create
     artist = params[:music][:artist]
     track = params[:music][:track]
-
-    if ((artist.length < 1) && (track.length < 1))
+    if (flash[:error])
       @music = Music.new
-      puts "IN HEEERE"
+      flash[:error] = nil
+      render "index"
+    elsif ((artist.length < 1) && (track.length < 1))
+      @music = Music.new
       flash[:error] = "Both Fields Must Be Filled In!"
       render "index"
     elsif (artist.length < 1)

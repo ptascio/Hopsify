@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid text-center">
   <% if @track_details %>
   <div class="row">
     <div class="col-sm-12">
@@ -38,7 +38,7 @@
   <% else %>
   <div class="row">
     <div class="col-sm-12">
-      <h1><%= @track_name %></h1>
+      <p><%= @not_found["error"] %></p>
     </div>
   </div>
   <div class="row">
@@ -48,7 +48,14 @@
   </div>
   <div class="row">
     <div class="col-sm-12">
-
+      <p>You entered <%= @artist_name %> as the artist</p>
+      <p>and</p>
+      <p><%= @track_name%> </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Try A New Search</h1>
     </div>
   </div>
   <div class="row">
@@ -56,39 +63,26 @@
 
     </div>
   </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <%= form_for Music.new, :url => {:action => 'index'} do |f| %>
+
+      <% if flash[:error] %>
+      <p><%= flash[:error] %></p>
+      <% end %>
+
+        <p>
+          Artist<br/><%= f.text_field 'artist' %>
+        </p>
+        <p>
+          Track<br/><%= f.text_field 'track' %>
+        </p>
+
+        <p>
+          <%= f.submit "Submit Data" %>
+        </p>
+      <% end %>
+    </div>
+  </div>
   <% end %>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-<p><%= @not_found["error"] %></p>
-<p>You entered <%= @artist_name %> as the artist</p>
-<p>and</p>
-<p><%= @track_name%> </p>
-<h1>Try A New Search</h1>
-<%= form_for Music.new, :url => {:action => 'index'} do |f| %>
-
-<% if flash[:error] %>
-<p><%= flash[:error] %></p>
- <% flash.clear %>
-<% end %>
-
-  <p>
-    Artist<br/><%= f.text_field 'artist' %>
-  </p>
-  <p>
-    Track<br/><%= f.text_field 'track' %>
-  </p>
-
-  <p>
-    <%= f.submit "Submit Data" %>
-  </p>
-<% end %>

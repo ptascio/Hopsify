@@ -16,7 +16,7 @@ class Music
   def self.set_params(artist, track)
     @artist = artist
     @track = track
-    @all_info = []
+    @all_info = {}
     get_new_access_token
   end
 
@@ -75,7 +75,7 @@ class Music
       }
     )
     @artist_info = JSON.parse(artist_info.body)
-    @all_info.push(@artist_info)
+    @all_info["artist_info"] = (@artist_info)
     analyze_artist_genre(@artist_info)
   end
 
@@ -89,7 +89,7 @@ class Music
       }
     )
 
-    @all_info.push(JSON.parse(track_info.body))
+    @all_info["track_info"] = (JSON.parse(track_info.body))
     get_artist_details
   end
 
@@ -128,7 +128,7 @@ class Music
         num = rand(13..120)
         id = num.to_s
       end
-    @all_info.push(id)
+    @all_info["beer_id"] = (id)
     return @all_info
   end
 

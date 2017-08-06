@@ -38,10 +38,10 @@ class MusicsController < ApplicationController
       if all_music_details.length < 2
         self.not_found = all_music_details[0]
       else
-        self.track_details = all_music_details[0]
-        self.artist_details = all_music_details[1]
-        self.artist_name = all_music_details[1]["name"]
-        self.beer_id = all_music_details[2]
+        self.track_details = all_music_details["track_info"]
+        self.artist_details = all_music_details["artist_info"]
+        # self.artist_name = all_music_details[1]["name"]
+        self.beer_id = all_music_details["beer_id"]
       end
       render 'show'
     end

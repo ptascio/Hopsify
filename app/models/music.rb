@@ -57,6 +57,7 @@ class Music
     else
       @track_id = song_info["tracks"]["items"][0]["id"]
       @artist_id = song_info["tracks"]["items"][0]["album"]["artists"][0]["id"]
+      @all_info["song_name"] = song_info["tracks"]["items"][0]["name"]
       #get actual song name
       # all_info.push(song_info["tracks"]["items"][0]["name"])
       #get song preview

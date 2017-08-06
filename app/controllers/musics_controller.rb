@@ -40,7 +40,8 @@ class MusicsController < ApplicationController
       else
         self.track_details = all_music_details["track_info"]
         self.artist_details = all_music_details["artist_info"]
-        # self.artist_name = all_music_details[1]["name"]
+        self.artist_name = all_music_details["artist_info"]["name"]
+        self.track_name = all_music_details["song_name"]
         self.beer_id = all_music_details["beer_id"]
       end
       render 'show'

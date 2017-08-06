@@ -3,6 +3,7 @@ class MusicsController < ApplicationController
   attr_accessor :artist_details
   attr_accessor :artist_name
   attr_accessor :track_name
+  attr_accessor :song_preview
   attr_accessor :music
   attr_accessor :not_found
   attr_accessor :beer_id
@@ -42,6 +43,7 @@ class MusicsController < ApplicationController
         self.artist_details = all_music_details["artist_info"]
         self.artist_name = all_music_details["artist_info"]["name"]
         self.track_name = all_music_details["song_name"]
+        self.song_preview = all_music_details["song_prev"]
         self.beer_id = all_music_details["beer_id"]
       end
       render 'show'

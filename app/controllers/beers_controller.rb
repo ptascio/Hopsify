@@ -7,7 +7,13 @@ class BeersController < ApplicationController
       redirect_to root_path
     else
       @id = params[:info][:beer_id]
-      @artist_pic = params["info"]["artist_details"]["images"][1]["url"]
+      image = nil
+      if (params["info"]["artist_details"]["images"])
+        image = params["info"]["artist_details"]["images"][1]["url"]
+      else
+        image = "cowbell.jpeg"
+      end
+      @artist_pic =  image
       @artist_name = params["info"]["artist_details"]["name"]
       @search_count = params["info"]["search_count"]
       if @id == "6969"

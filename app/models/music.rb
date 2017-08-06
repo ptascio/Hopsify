@@ -58,10 +58,7 @@ class Music
       @track_id = song_info["tracks"]["items"][0]["id"]
       @artist_id = song_info["tracks"]["items"][0]["album"]["artists"][0]["id"]
       @all_info["song_name"] = song_info["tracks"]["items"][0]["name"]
-      #get actual song name
-      # all_info.push(song_info["tracks"]["items"][0]["name"])
-      #get song preview
-      # all_info.push(song_info["tracks"]["items"][0]["preview_url"])
+      @all_info["song_prev"] = song_info["tracks"]["items"][0]["preview_url"]
       get_track_details
     end
   end

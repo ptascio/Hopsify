@@ -1,6 +1,5 @@
 
-<div class="container-fluid text-center">
-
+<div class="container-fluid">
 <div class="row">
   <div class="col-sm-12">
     <h1>Beers</h1>
@@ -11,64 +10,77 @@
 
 <div class="row">
   <div class="col-sm-6">
-    <h3><%= @artist_name %></h3>
-  </div>
-  <div class="col-sm-12">
-    <%= image_tag  @artist_pic %>
-  </div>
-
-
-
-  <div class="col-sm-6">
     <h3><%= @beer["data"][0]["style"]["name"] %></h3>
-  </div>
-  <div class="col-sm-12">
     <p><%= @beer["data"][0]["style"]["description"]%></p>
-  </div>
+    </div>
+    <div class="col-sm-6">
+      <h3><%= @artist_name %></h3>
+      <%= image_tag  @artist_pic %>
+    </div>
+</div>
 </div>
 
-<div class="row">
+<div class="container-fluid text-center">
+
   <% beer_info = @beer["data"] %>
   <% beer_info.each do |beer| %>
-
+<div class="row">
   <div class="col-sm-12">
     <h3><%= beer["nameDisplay"] %></h3>
   </div>
+</div>
 
     <% if beer["description"].nil? %>
-    <div class="col-sm-12">
-      <p><em>No description available...</em></p>
+    <div class="row">
+      <div class="col-sm-12">
+        <p><em>No description available...</em></p>
+      </div>
     </div>
-    <div class="col-sm-12">
-      <p><em>...you'll have to try it and let us know what you think!</em></p>
+    <div class="row">
+      <div class="col-sm-12">
+        <p><em>...you'll have to try it and let us know what you think!</em></p>
+      </div>
     </div>
 
+
     <% else %>
-    <div class="col-sm-12">
-      <p><%= beer["description"] %></p>
+    <div class="row">
+      <div class="col-sm-12">
+        <p><%= beer["description"] %></p>
+      </div>
     </div>
+
     <% end %>
     <% if beer["labels"]%>
-    <div class="col-sm-12">
-      <%= image_tag beer["labels"]["medium"] %>
+    <div class="row">
+      <div class="col-sm-12">
+        <%= image_tag beer["labels"]["medium"] %>
+      </div>
     </div>
+
 
     <% else %>
-    <div class="">
-      <p><em>No Label available...</em></p>
+    <div class="row">
+      <div class="col-sm-12">
+        <p><em>No Label available...</em></p>
+      </div>
     </div>
-    <div class="">
-      <p><em>...so here's a picture of a pint!</em></p>
+    <div class="row">
+      <div class="col-sm-12">
+        <p><em>...so here's a picture of a pint!</em></p>
+      </div>
     </div>
 
-
-    <div class="col-sm-12" style="background-color: #FFCA5A; width:256px; height:256px;">
-      <%= image_tag("pint_medium.png") %>
+    <div class="row ">
+      <div class="col-sm-12 beer-glass">
+        <%= image_tag("pint_medium.png") %>
+      </div>
     </div>
+
 
     <% end %>
   <% end %>
-</div>
+
 
 <% if ((@id != "6969") && (@search_count.to_i < 3)) %>
   <%= button_to "Find more beers", params: {:beer_id => @id, :artist_pic => @artist_pic, :artist_name => @artist_name, :search_count => @search_count } %>

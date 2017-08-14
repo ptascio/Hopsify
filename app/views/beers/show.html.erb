@@ -13,7 +13,7 @@
 <% @beer["data"].each do |beer| %>
   <h2><%= beer["nameDisplay"] %></h2>
   <% if beer["description"].nil? %>
-    <em>No description available</em>
+    <em>No description available! You'll have to try it and let us know what you think!</em>
   <% else %>
     <p><%=  beer["description"] %></p>
   <% end %>

@@ -1,8 +1,29 @@
-
-
-
 .beer-glass > img
   background-color: #FFCA5A
   margin: 0 auto
   width: 256px
   height: 256px
+
+.choose-beer-form
+  border: 1px solid #000
+  text-align: left
+
+.choose-beer-form > div > form
+  width: 100%
+  border: 1px solid #DC143C
+
+.form-holder
+  width: 60%
+  margin-left: 28%
+
+@media only screen and (max-width: 500px)
+  .choose-beer-form > div > form
+    width: 100%
+    border: 1px solid #FFFF00
+
+  .form-holder
+    width: 100%
+    margin-left: 0
+
+  .choose-beer-form > div > form > label
+    display: inline

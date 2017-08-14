@@ -16,6 +16,22 @@
   width: 60%
   margin-left: 28%
 
+.form-holder > form > label
+  margin: 5px
+
+.form-holder > form > input:last-child
+  margin: 15px
+
+@media only screen and (max-width: 770px)
+  .form-holder > form > label,
+  .form-holder > form > input
+    display: inline
+    margin: 5px
+    font-size: 13px
+
+  .form-holder
+    width: 80%
+
 @media only screen and (max-width: 500px)
   .choose-beer-form > div > form
     width: 100%
@@ -24,6 +40,3 @@
   .form-holder
     width: 100%
     margin-left: 0
-
-  .choose-beer-form > div > form > label
-    display: inline

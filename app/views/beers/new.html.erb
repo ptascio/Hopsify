@@ -5,8 +5,13 @@
     </div>
   </div>
   <div class="row">
+    <div class="col-sm-12 back-home">
+      <%= link_to "Actually, I'll Search by Song", root_path %>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-sm-12">
-      <p>Tell us, what are you looking for?</p>
+      <h3>Tell us, what are you looking for?</h3>
     </div>
   </div>
   <div class="row">
@@ -36,9 +41,8 @@
         <%= radio_button_tag(:description, "surprise") %>
         <%= label_tag(:description, "SURPRISE ME!") %><br>
         <%= hidden_field_tag "custom_search", "true"%>
-        <%= submit_tag "Get Me Some Beers" %>
+        <%= submit_tag "Get Me Some Beers!" %>
       <% end %>
     </div>
   </div>
-  <%= link_to 'Search by Song', root_path %>
 </div>

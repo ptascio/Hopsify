@@ -4,6 +4,21 @@
   width: 256px
   height: 256px
 
+.back-home > a,
+.form-holder > form > input:last-child
+  background: #6AE368
+  padding: 5px 10px
+  border-radius: 3px
+  font-weight: bold
+  color: #000
+
+.form-holder > form > input:last-child:hover,
+.back-home > a:hover
+  color: #6AE368
+  background: #000
+
+
+
 .choose-beer-form
   border: 1px solid #000
   text-align: left
@@ -18,16 +33,24 @@
 
 .form-holder > form > label
   margin: 5px
+  font-size: 18px
 
 .form-holder > form > input:last-child
   margin: 15px
+  font-size: 20px
+  border: none
+
 
 @media only screen and (max-width: 770px)
+
   .form-holder > form > label,
   .form-holder > form > input
     display: inline
     margin: 5px
-    font-size: 13px
+    font-size: 15px
+
+  .form-holder > form > input:last-child
+    font-size: 15px
 
   .form-holder
     width: 80%

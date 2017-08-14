@@ -5,14 +5,11 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-12 song-form">
       <% if flash[:error] %>
       <p><%= flash[:error] %></p>
       <% end %>
       <%= form_for @music, :url => {:action => 'index'} do |f| %>
-
-
-
           <p>
             Artist<br/><%= f.text_field 'artist', value: params.include?(:music)? params[:music][:artist] : "" %>
           </p>
@@ -20,7 +17,7 @@
             Track<br/><%= f.text_field 'track', value: params.include?(:music)? params[:music][:track] : "" %>
           </p>
 
-          <p>
+          <p class="back-home">
             <%= f.submit "Find Song" %>
           </p>
       <% end %>

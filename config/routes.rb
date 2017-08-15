@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :beers
 
   root 'musics#index'
+
+  get '/explanation' => 'statics#explanation'
 end

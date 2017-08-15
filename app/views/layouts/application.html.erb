@@ -10,7 +10,9 @@
   </head>
 
   <body>
+    <% unless controller_name == 'statics'%>
     <%= render 'layouts/nav' %>
+    <% end %>
 
     <%= yield %>
   </body>

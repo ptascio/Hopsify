@@ -13,13 +13,13 @@
   <% if @artist_details["images"].length >= 2%>
     <div class="row">
       <div class="col-sm-12">
-        <%= image_tag @artist_details["images"][1]["url"] %>
+        <%= image_tag @artist_details["images"][1]["url"], :class => "artist-img" %>
       </div>
     </div>
   <% else %>
     <div class="row">
       <div class="col-sm-12">
-        <%= image_tag("cowbell.jpeg") %>
+        <%= image_tag("cowbell.jpeg", :class => "artist-img")  %>
       </div>
     </div>
   <% end %>

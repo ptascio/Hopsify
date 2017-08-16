@@ -10,6 +10,25 @@
         <h2>by <%= @artist_name %></h2>
     </div>
   </div>
+  <div class="row song-stats-container">
+    <div class="col-sm-3">
+      <p>Dancey: <%= @track_details["danceability"]%></p>
+    </div>
+    <div class="col-sm-3">
+        <p>Energy: <%= @track_details["energy"]%></p>
+    </div>
+    <div class="col-sm-3">
+        <p>Loudness: <%= @track_details["loudness"]%></p>
+    </div>
+    <div class="col-sm-3">
+        <p>Liveness: <%= @track_details["liveness"]%></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+        <a target="_blank" href="<%=@song_preview%>">Hear A Clip</a>
+    </div>
+  </div>
   <% if @artist_details["images"].length >= 2%>
     <div class="row">
       <div class="col-sm-12">
@@ -23,21 +42,7 @@
       </div>
     </div>
   <% end %>
-  <div class="row">
-    <div class="col-sm-12">
-      <p>Dancey: <%= @track_details["danceability"]%></p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12">
-        <p>Energy: <%= @track_details["energy"]%></p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12">
-        <a target="_blank" href="<%=@song_preview%>">Hear A Clip</a>
-    </div>
-  </div>
+
   <div class="row">
     <div class="col-sm-6">
       <%= link_to "New Search", root_path %>

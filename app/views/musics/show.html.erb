@@ -24,21 +24,25 @@
         <p>Liveness: <span><%= @track_details["liveness"]%></span></p>
     </div>
   </div>
-  <div class="row">
-    <div class="col-sm-12 clip-container">
-        <a target="_blank" href="<%=@song_preview%>">Hear A Clip</a>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-6">
-      <%= link_to "New Search", root_path %>
-    </div>
+
+  <div class="links-container">
     <div class="row">
-      <div class="col-sm-6">
+      <div class="col-sm-12 find-beer">
         <%= link_to "Find A Beer", beers_path(info: { "beer_id" => @beer_id, "track_details" => @track_details, "artist_details" => @artist_details, "search_count" => 1 }) %>
       </div>
     </div>
+    <div class="row">
+      <div class="col-sm-12 clip-container">
+          <a target="_blank" href="<%=@song_preview%>">Hear A Clip</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <%= link_to "New Search", root_path %>
+      </div>
+    </div>
   </div>
+
   <% if @artist_details["images"].length >= 2%>
     <div class="row">
       <div class="col-sm-12">

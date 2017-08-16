@@ -25,8 +25,18 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-12 clip-container">
         <a target="_blank" href="<%=@song_preview%>">Hear A Clip</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <%= link_to "New Search", root_path %>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <%= link_to "Find A Beer", beers_path(info: { "beer_id" => @beer_id, "track_details" => @track_details, "artist_details" => @artist_details, "search_count" => 1 }) %>
+      </div>
     </div>
   </div>
   <% if @artist_details["images"].length >= 2%>
@@ -43,16 +53,7 @@
     </div>
   <% end %>
 
-  <div class="row">
-    <div class="col-sm-6">
-      <%= link_to "New Search", root_path %>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <%= link_to "Find A Beer", beers_path(info: { "beer_id" => @beer_id, "track_details" => @track_details, "artist_details" => @artist_details, "search_count" => 1 }) %>
-      </div>
-    </div>
-  </div>
+
   <% else %>
   <div class="row">
     <div class="col-sm-12">

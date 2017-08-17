@@ -82,7 +82,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-12 song-form">
       <%= form_for Music.new, :url => {:action => 'index'} do |f| %>
 
       <% if flash[:error] %>
@@ -96,8 +96,8 @@
           Track<br/><%= f.text_field 'track' %>
         </p>
 
-        <p>
-          <%= f.submit "Submit Data" %>
+        <p class="back-home">
+          <%= f.submit "Find Song" %>
         </p>
       <% end %>
     </div>

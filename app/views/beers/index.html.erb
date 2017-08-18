@@ -2,14 +2,16 @@
 <div class="container-fluid">
 <div class="row text-center">
   <div class="col-sm-12">
-    <h1>We've Found These Beers</h1>
+    <h1>We've Found These Beers!</h1>
   </div>
 </div>
 
 
 
 <div class="row text-center">
-  <div class="col-sm-6">
+  <div class="col-sm-2">
+  </div>
+  <div class="col-sm-4">
     <h3>Style: <%= @beer["data"][0]["style"]["name"] %></h3>
     <p><%= @beer["data"][0]["style"]["description"]%></p>
     </div>
@@ -21,7 +23,7 @@
 </div>
 
 <div class="container-fluid text-center">
-
+  <h2>BEERS</h2>
   <% beer_info = @beer["data"] %>
   <% beer_info.each do |beer| %>
 <div class="row">
@@ -32,25 +34,29 @@
 
   <% if beer["description"].nil? %>
     <div class="row">
-      <div class="col-sm-6">
+      <div class="col-sm-2">
+      </div>
+      <div class="col-sm-4">
         <p><em>No description available...you'll have to try it and let us know what you think</em></p>
       </div>
   <% else %>
     <div class="row">
-      <div class="col-sm-6">
+      <div class="col-sm-2">
+      </div>
+      <div class="col-sm-4">
         <p><%= beer["description"] %></p>
       </div>
   <% end %>
 
   <% if beer["labels"]%>
-      <div class="col-sm-6">
-        <%= image_tag beer["labels"]["medium"] %>
+      <div class="col-sm-6 beer-container">
+        <%= image_tag beer["labels"]["medium"], :class => "beer-container" %>
       </div>
 
 
     <% else %>
       <div class="col-sm-6 beer-glass">
-        <%= image_tag("pint_medium.png") %>
+        <%= image_tag("pint_medium.png", :class => "beer-container") %>
       </div>
     </div>
     <% end %>

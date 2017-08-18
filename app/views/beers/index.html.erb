@@ -2,7 +2,7 @@
 <div class="container-fluid">
 <div class="row text-center">
   <div class="col-sm-12">
-    <h1>Beers</h1>
+    <h1>We've Found These Beers</h1>
   </div>
 </div>
 
@@ -10,7 +10,7 @@
 
 <div class="row text-center">
   <div class="col-sm-6">
-    <h3><%= @beer["data"][0]["style"]["name"] %></h3>
+    <h3>Style: <%= @beer["data"][0]["style"]["name"] %></h3>
     <p><%= @beer["data"][0]["style"]["description"]%></p>
     </div>
     <div class="col-sm-6">
@@ -30,52 +30,29 @@
   </div>
 </div>
 
-    <% if beer["description"].nil? %>
+  <% if beer["description"].nil? %>
     <div class="row">
-      <div class="col-sm-12">
-        <p><em>No description available...</em></p>
+      <div class="col-sm-6">
+        <p><em>No description available...you'll have to try it and let us know what you think</em></p>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12">
-        <p><em>...you'll have to try it and let us know what you think!</em></p>
-      </div>
-    </div>
-
-
-    <% else %>
+  <% else %>
     <div class="row">
       <div class="col-sm-6">
         <p><%= beer["description"] %></p>
       </div>
+  <% end %>
 
-    <% end %>
-    <% if beer["labels"]%>
+  <% if beer["labels"]%>
       <div class="col-sm-6">
         <%= image_tag beer["labels"]["medium"] %>
       </div>
-    </div>
 
 
     <% else %>
-    <div class="row">
-      <div class="col-sm-12">
-        <p><em>No Label available...</em></p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12">
-        <p><em>...so here's a picture of a pint!</em></p>
-      </div>
-    </div>
-
-    <div class="row ">
-      <div class="col-sm-12 beer-glass">
+      <div class="col-sm-6 beer-glass">
         <%= image_tag("pint_medium.png") %>
       </div>
     </div>
-
-
     <% end %>
   <% end %>
 

@@ -28,7 +28,7 @@
   <div class="links-container">
     <div class="row">
       <div class="col-sm-12 find-beer">
-        <%= link_to "Find A Beer", beers_path(info: { "beer_id" => @beer_id, "track_details" => @track_details, "artist_details" => @artist_details, "search_count" => 1 }) %>
+        <%= link_to "Find A Beer", beers_path(info: { "track_name" => @track_name, "beer_id" => @beer_id, "track_details" => @track_details, "artist_details" => @artist_details, "search_count" => 1 }) %>
       </div>
     </div>
     <div class="row">

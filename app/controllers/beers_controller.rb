@@ -13,6 +13,7 @@ class BeersController < ApplicationController
       else
         image = "cowbell.jpeg"
       end
+      @song_title = params["info"]["track_name"]
       @artist_pic =  image
       @artist_name = params["info"]["artist_details"]["name"]
       @search_count = params["info"]["search_count"]

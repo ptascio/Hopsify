@@ -68,7 +68,7 @@
   <% end %>
   <div class="gen-btn cols-sm-4">
     <% if ((@id != "6969") && (@search_count.to_i < 3)) %>
-      <%= button_to "Find More Of These", params: {:beer_id => @id, :artist_pic => @artist_pic, :artist_name => @artist_name, :search_count => @search_count } %>
+      <%= button_to "Find More Of These", params: {:track_name => @song_title, :beer_id => @id, :artist_pic => @artist_pic, :artist_name => @artist_name, :search_count => @search_count } %>
     <% else %>
       <p>That's all the beers we have for this song! Try a new search!</p>
       <div class="row text-center">

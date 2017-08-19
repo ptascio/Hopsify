@@ -57,6 +57,7 @@ class BeersController < ApplicationController
       else
         new_count = params[:search_count].to_i
         new_count += 1
+        @song_title = params[:track_name]
         @search_count = new_count
         @artist_pic = params[:artist_pic]
         @artist_name = params[:artist_name]

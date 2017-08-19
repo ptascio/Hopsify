@@ -1,20 +1,80 @@
-<% if @search_count < 3 %>
-  <%= button_to "More of this", beers_path, params: { beer_id: @beer["data"][0]["styleId"], more_of_the_same: "true", search_count: @search_count } %><br>
-  <%= button_to "Suprise me again!", beers_path, params: { custom_search: "true", description: "surprise", search_count: @search_count } %><br>
-<% end %>
-<%= link_to "Back to beer search", new_beer_path %><br>
-<%= link_to "Find beers by song", root_path %><br>
+<div class="container-fluid beer-list-nav text-center">
+  <div class="row col-sm-3">
+    <%= link_to "Find beers by song", root_path %><br>
+  </div>
+  <% if @search_count < 3 %>
+  <div class="row col-sm-3">
+    <%= button_to "More of this", beers_path, params: { beer_id: @beer["data"][0]["styleId"], more_of_the_same: "true", search_count: @search_count } %><br>
+  </div>
+  <div class="row col-sm-3">
+    <%= button_to "Suprise me again!", beers_path, params: { custom_search: "true", description: "surprise", search_count: @search_count } %><br>
+  </div>
+  <% end %>
+  <div class="row col-sm-3">
+    <%= link_to "Back to beer search", new_beer_path %><br>
+  </div>
+</div>
 
 
-<h1><%=  @beer["data"][0]["style"]["shortName"] %></h1>
-<h3><%=  @beer["data"][0]["style"]["description"] %></h3>
+
+
+
+<div class="container-fluid text-center">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1><%=  @beer["data"][0]["style"]["shortName"] %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-6">
+      <h4><%=  @beer["data"][0]["style"]["description"] %></h4>
+    </div>
+    <div class="col-sm-3">
+    </div>
+  </div>
+</div>
+
+
 <% @search_count += 1%>
 
-<% @beer["data"].each do |beer| %>
-  <h2><%= beer["nameDisplay"] %></h2>
-  <% if beer["description"].nil? %>
-    <em>No description available! You'll have to try it and let us know what you think!</em>
+<div class="container-fluid text-center">
+<% beer_info = @beer["data"] %>
+<% beer_info.each do |beer| %>
+<div class="row">
+<div class="col-sm-12">
+  <h3><%= beer["nameDisplay"] %></h3>
+</div>
+</div>
+
+<% if beer["description"].nil? %>
+  <div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-4">
+      <p><em>No description available...you'll have to try it and let us know what you think</em></p>
+    </div>
+<% else %>
+  <div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-4">
+      <p><%= beer["description"] %></p>
+    </div>
+<% end %>
+
+<% if beer["labels"]%>
+    <div class="col-sm-6 beer-container">
+      <%= image_tag beer["labels"]["medium"], :class => "beer-container" %>
+    </div>
+
+
   <% else %>
-    <p><%=  beer["description"] %></p>
+    <div class="col-sm-6 beer-glass">
+      <%= image_tag("pint_medium.png", :class => "beer-container") %>
+    </div>
+  </div>
   <% end %>
 <% end %>
+</div>

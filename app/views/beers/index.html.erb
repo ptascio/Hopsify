@@ -20,18 +20,10 @@
       <%= image_tag  @artist_pic, :class => 'artist-img' %>
     </div>
 </div>
-  <div class="row text-center link-holders">
-    <div class="col-sm-4">
+  <div class="row text-center">
+    <div class="col-sm-12 link-holders">
       <%= link_to "New Search", root_path %>
     </div>
-
-  <div class="gen-btn cols-sm-4">
-    <% if ((@id != "6969") && (@search_count.to_i < 3)) %>
-      <%= button_to "Find More Of These", params: {:beer_id => @id, :artist_pic => @artist_pic, :artist_name => @artist_name, :search_count => @search_count } %>
-    <% else %>
-      <p>That's all the beers we have for this song! Try a new search!</p>
-    <% end %>
-  </div>
   </div>
 </div>
 
@@ -74,6 +66,17 @@
     </div>
     <% end %>
   <% end %>
-
+  <div class="gen-btn cols-sm-4">
+    <% if ((@id != "6969") && (@search_count.to_i < 3)) %>
+      <%= button_to "Find More Of These", params: {:beer_id => @id, :artist_pic => @artist_pic, :artist_name => @artist_name, :search_count => @search_count } %>
+    <% else %>
+      <p>That's all the beers we have for this song! Try a new search!</p>
+      <div class="row text-center">
+        <div class="col-sm-12 link-holders">
+          <%= link_to "New Search", root_path %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
 </div>

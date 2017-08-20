@@ -11,9 +11,10 @@
 
   <body id="body-overrides">
     <% unless controller_name == 'statics'%>
-    <%= render 'layouts/nav' %>
+      <%= render 'layouts/nav' %>
     <% end %>
 
     <%= yield %>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

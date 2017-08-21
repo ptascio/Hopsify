@@ -31,11 +31,13 @@
         <%= link_to "Find A Beer", beers_path(info: { "track_name" => @track_name, "beer_id" => @beer_id, "track_details" => @track_details, "artist_details" => @artist_details, "search_count" => 1 }) %>
       </div>
     </div>
+    <% if !@song_preview.nil? %>
     <div class="row">
       <div class="col-sm-12 clip-container">
           <a target="_blank" href="<%=@song_preview%>">Hear A Clip</a>
       </div>
     </div>
+    <% end %>
     <div class="row">
       <div class="col-sm-12">
         <%= link_to "New Search", root_path %>
